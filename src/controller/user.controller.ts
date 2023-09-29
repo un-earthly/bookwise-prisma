@@ -1,9 +1,7 @@
-import path from "path";
 import { UserService } from "../service/user.service";
 import catchAsync from "../utils/catchAsync";
 import { sendResponse } from "../utils/responseUtils";
 import { generateAccessToken, generateRefreshToken } from "../utils/token";
-import fs from "fs"
 
 
 const UserController = {
