@@ -7,24 +7,22 @@ const router = require("express").Router();
 
 const routes = [
     {
-        path: "user",
+        path: "/user",
         children: userRouter
     },
     {
-        path: "category",
+        path: "/category",
         children: categoryRouter
     },
     {
-        path: "books",
+        path: "/books",
         children: bookRouter
     },
     {
-        path: "order",
+        path: "/order",
         children: orderRouter
     }
 ]
-
-// Loop through the route configurations and mount them
 routes.forEach(r => router.use(r.path, r.children))
 
 export default router
