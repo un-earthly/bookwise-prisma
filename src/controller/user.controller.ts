@@ -4,8 +4,6 @@ import { sendResponse } from "../utils/responseUtils";
 
 
 const UserController = {
-  
-
     getAllUsers: catchAsync(async (req, res) => {
         const users = await UserService.getAllUsers();
         sendResponse(res, 200, { users });

@@ -1,5 +1,5 @@
 import bookRouter from "./book.route";
-import categoryRouter from "./category.route";
+import CategoryRouter from "./category.route";
 import orderRouter from "./order.route";
 import userRouter from "./user.route";
 import authRouter from "./auth.route";
@@ -16,8 +16,8 @@ const routes = [
         children: userRouter
     },
     {
-        path: "/category",
-        children: categoryRouter
+        path: "/categories",
+        children: CategoryRouter
     },
     {
         path: "/books",
