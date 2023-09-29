@@ -1,9 +1,10 @@
-// tokenService.ts
 import { NextFunction, Request, Response } from 'express';
-import jwt, { VerifyErrors } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 interface AccessTokenPayload {
     id: string;
+    role: string;
+    email: string
 }
 
 interface RefreshTokenPayload {
@@ -14,12 +15,9 @@ const accessTokenSecret = '5f2a1f0fe978e5ae25a8876c3e8db0b683490eda39575abdc9796
 const refreshTokenSecret = 'e07f980e1cb55cdf8cf84b618a7494addd8690f1b732d74a48e9780f2b63070a1a82a8ad052ab25ca0cdf5af9a2a9e61e80cd503e816ffd07faf5b8811a90ace';
 
 export function generateAccessToken(payload: AccessTokenPayload): string {
-    return jwt.sign(payload, accessTokenSecret, { expiresIn: '15m' });
+    return jwt.sign(payload, accessTokenSecret, { expiresIn: '1y' });
 }
 
-export function generateRefreshToken(payload: RefreshTokenPayload): string {
-    return jwt.sign(payload, refreshTokenSecret, { expiresIn: '7d' });
-}
 
 export function verifyAccessToken(token: string): AccessTokenPayload | null {
     try {
@@ -38,8 +36,7 @@ export function verifyRefreshToken(token: string): RefreshTokenPayload | null {
 }
 
 
-
-export function authenticateToken(
+export function verifyJWT(
     req: Request,
     res: Response,
     next: NextFunction
@@ -47,10 +44,16 @@ export function authenticateToken(
     const authHeader = req.headers['authorization'];
 
     if (!authHeader) {
-        return res.status(401);
+        return res.status(401).json({ message: 'Unauthorized' });
     }
 
-    const token = authHeader.split(' ')[1];
+    let token;
+
+    if (authHeader.startsWith('Bearer ')) {
+        token = authHeader.slice(7);
+    } else {
+        token = authHeader;
+    }
 
     const payload = verifyAccessToken(token);
 

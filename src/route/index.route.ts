@@ -2,12 +2,17 @@ import bookRouter from "./book.route";
 import categoryRouter from "./category.route";
 import orderRouter from "./order.route";
 import userRouter from "./user.route";
+import authRouter from "./auth.route";
 
 const router = require("express").Router();
 
 const routes = [
     {
-        path: "/user",
+        path: "/auth",
+        children: authRouter
+    },
+    {
+        path: "/users",
         children: userRouter
     },
     {

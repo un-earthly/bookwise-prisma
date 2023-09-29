@@ -1,20 +1,10 @@
 import { UserService } from "../service/user.service";
 import catchAsync from "../utils/catchAsync";
 import { sendResponse } from "../utils/responseUtils";
-import { generateAccessToken, generateRefreshToken } from "../utils/token";
 
 
 const UserController = {
-    signup: catchAsync(async (req, res) => {
-        const data = {
-            ...req.body,
-            profileImg: req.file.filename
-        }
-        const user = await UserService.createUser(data);
-        const accessToken = generateAccessToken({ id: user.id });
-        const refreshToken = generateRefreshToken({ id: user.id });
-        sendResponse(res, 200, { user, accessToken, refreshToken });
-    }),
+  
 
     getAllUsers: catchAsync(async (req, res) => {
         const users = await UserService.getAllUsers();

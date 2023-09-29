@@ -4,13 +4,6 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 export const UserService = {
 
-    createUser: async (data: IUser) => {
-        const newUser = await prisma.user.create({
-            data
-        });
-        return newUser;
-    },
-
     deleteUser: async (id: string) => {
         const deletedUser = await prisma.user.delete({
             where: { id }
