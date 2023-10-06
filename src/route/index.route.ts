@@ -24,7 +24,7 @@ const routes = [
         children: bookRouter
     },
     {
-        path: "/order",
+        path: "/orders",
         children: orderRouter
     }
 ]

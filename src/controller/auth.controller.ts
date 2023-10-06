@@ -13,7 +13,7 @@ const authController = {
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = await AuthService.createUser({ ...userData, password: hashedPassword });
         const token = generateAccessToken({ id: user.id, role: user.role, email: user.email });
-        sendResponse(res, 200, { user, token });
+        sendResponse(res, 200,user, "user created successfully", token);
     }),
     login: catchAsync(async (req, res) => {
         const { email, password } = req.body;
@@ -26,7 +26,8 @@ const authController = {
 
         const token = generateAccessToken({ id: user.id, role: user.role, email: user.email });
 
-        sendResponse(res, 200, { user, token });
+        sendResponse(res, 200, user, "user logged in successfully", token);
+
     }),
 }
 

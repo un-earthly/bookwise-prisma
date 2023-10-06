@@ -56,11 +56,11 @@ export function verifyJWT(
     }
 
     const payload = verifyAccessToken(token);
-
+    console.log(token)
     if (!payload) {
         return res.sendStatus(403);
     }
-
+    
     req.user = payload;
 
     next();
