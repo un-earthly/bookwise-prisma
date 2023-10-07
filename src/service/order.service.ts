@@ -24,7 +24,15 @@ const OrderService = {
         return orders;
     },
 
-   
+    getSingleOrder: async (orderId: string) => {
+        const order = await prisma.order.findUnique({
+            where: { id: orderId },
+            include: {
+                orderedBooks: true,
+            },
+        });
+        return order;
+    },
 };
 
 export default OrderService;
