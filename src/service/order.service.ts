@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import catchAsync from '../utils/catchAsync';
 
 const prisma = new PrismaClient();
 
@@ -15,16 +16,16 @@ const OrderService = {
         return order;
     },
 
-    getAllOrders: async () => {
+    getAllOrders:catchAsync( async () => {
         const orders = await prisma.order.findMany({
             include: {
                 orderedBooks: true,
             },
         });
         return orders;
-    },
+    }),
 
-    getSingleOrder: async (orderId: string) => {
+    getSingleOrder: catchAsync(async (orderId: string) => {
         const order = await prisma.order.findUnique({
             where: { id: orderId },
             include: {
@@ -32,7 +33,7 @@ const OrderService = {
             },
         });
         return order;
-    },
+    }),
 };
 
 export default OrderService;
