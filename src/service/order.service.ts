@@ -4,7 +4,7 @@ import catchAsync from '../utils/catchAsync';
 const prisma = new PrismaClient();
 
 const OrderService = {
-    createOrder: async (userId: string, orderedBooks: any) => {
+    createOrder: catchAsync(async (userId: string, orderedBooks: any) => {
         console.log(orderedBooks.orderedBooks)
         const order = await prisma.order.create({
             data: {
@@ -14,7 +14,7 @@ const OrderService = {
             },
         });
         return order;
-    },
+    }),
 
     getAllOrders:catchAsync( async () => {
         const orders = await prisma.order.findMany({
