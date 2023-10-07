@@ -1,6 +1,5 @@
 import express, { Request, Response } from 'express';
 import appRouter from './route/index.route';
-import path from 'path';
 import globalErrorHandler from './middleware/globalErrorHandler';
 const app = express();
 const port = process.env.PORT || 8000;
