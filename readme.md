@@ -1,10 +1,8 @@
-Certainly! Below is an extended version of the project brief that includes the service files for each controller, which handle the business logic and interact with the database.
-
-## Project Brief: Book Inventory Management System
+## Project Brief: Bookwise - A Book Library Management System
 
 ### Overview
 
-The Book Inventory Management System is a web application designed to efficiently manage the sales and inventory of books. It provides features for user authentication, book categorization, book management, order processing, and user management. This technical document provides an overview of the project structure, its main components, and the routes used in the application, including the service files for each controller.
+The Book library Management System is a web application designed to efficiently manage the inventory of books. It provides features for user authentication, book categorization, book management, order processing, and user management. This technical document provides an overview of the project structure, its main components, and the routes used in the application, including the service files for each controller.
 
 ### Project Structure
 

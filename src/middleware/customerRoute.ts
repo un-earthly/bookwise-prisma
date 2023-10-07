@@ -7,10 +7,10 @@ export function adminRoute(
 ) {
     const userRole = req.user.role;
 
-    if (userRole !== 'admin') {
+    if (userRole !== 'customer') {
         return res.status(403).json({ message: 'Forbidden' });
     }
-    
+
 
     next();
 }

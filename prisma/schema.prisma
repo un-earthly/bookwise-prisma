@@ -6,7 +6,10 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
+enum Role {
+  CUSTOMER
+  ADMIN
+}
 model Book {
   id              String     @id @default(uuid())
   title           String
@@ -46,7 +49,7 @@ model User {
   name     String
   email    String    @unique
   password String
-  role     String
+  role     Role
   contactNo String
   address   String
   profileImg String
