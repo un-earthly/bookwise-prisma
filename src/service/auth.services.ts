@@ -1,17 +1,18 @@
 import { PrismaClient } from "@prisma/client";
 import { IUser } from "../interface/user.interface";
 import bcrypt from "bcrypt"
+import catchAsync from "../utils/catchAsync";
 
 const prisma = new PrismaClient();
 
 export const AuthService = {
-    createUser: async (data: IUser) => {
+    createUser: catchAsync(async (data: IUser) => {
         const newUser = await prisma.user.create({
             data
         });
         return newUser;
-    },
-    loginUser: async (email: string, password: string) => {
+    }),
+    loginUser: catchAsync(async (email: string, password: string) => {
         const user = await prisma.user.findUnique({
             where: {
                 email,
@@ -29,7 +30,7 @@ export const AuthService = {
         }
 
         return user;
-    },
+    }),
 };
 
 function comparePasswords(inputPassword: string, hashedPassword: string) {
