@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 
 export function sendResponse(res: Response, statusCode: number, data?: any, message?: string, token?: string) {
     const response: { status: string; message?: string; data?: any, token?: string } = { status: statusCode === 200 ? "success" : "error", };
