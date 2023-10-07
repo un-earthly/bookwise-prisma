@@ -1,14 +1,17 @@
 import express, { Request, Response } from 'express';
 import appRouter from './route/index.route';
 import path from 'path';
+import globalErrorHandler from './middleware/globalErrorHandler';
 const app = express();
 const port = process.env.PORT || 8000;
 
+
+app.use(globalErrorHandler);
+
 app.use(express.json());
 
-
-const uploadsPath = path.join(__dirname, '../uploads');
-app.use('/uploads', express.static(uploadsPath));
+// const uploadsPath = path.join(__dirname, '../uploads');
+// app.use('/uploads', express.static(uploadsPath));
 
 
 app.get('/', (req: Request, res: Response) => {
