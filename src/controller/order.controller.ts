@@ -5,6 +5,9 @@ import OrderService from "../service/order.service";
 
 const categoryController = {
     createOrder: catchAsync(async (req: Request, res: Response) => {
+        if (!req.user) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
         const order = await OrderService.createOrder(req.user.id, req.body.orderedBooks); 
         sendResponse(res, 200, order);
     }),
