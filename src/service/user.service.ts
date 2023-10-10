@@ -1,33 +1,33 @@
-import { IUser } from "../interface/user.interface";
-import { PrismaClient } from '@prisma/client';
+import { type IUser } from '../interface/user.interface'
+import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 export const UserService = {
 
-    deleteUser: async (id: string) => {
-        const deletedUser = await prisma.user.delete({
-            where: { id }
-        })
-        return deletedUser;
-    },
+  deleteUser: async (id: string) => {
+    const deletedUser = await prisma.user.delete({
+      where: { id }
+    })
+    return deletedUser
+  },
 
-    getAllUsers: async () => {
-        const users = await prisma.user.findMany();
-        return users;
-    },
+  getAllUsers: async () => {
+    const users = await prisma.user.findMany()
+    return users
+  },
 
-    getSingleUser: async (id: string) => {
-        const user = await prisma.user.findUnique({
-            where: { id }
-        });
-        return user;
-    },
+  getSingleUser: async (id: string) => {
+    const user = await prisma.user.findUnique({
+      where: { id }
+    })
+    return user
+  },
 
-    updateUser: async (id: string, data: Partial<IUser>) => {
-        const updatedUser = await prisma.user.update({
-            where: { id },
-            data
-        });
-        return updatedUser;
-    },
+  updateUser: async (id: string, data: Partial<IUser>) => {
+    const updatedUser = await prisma.user.update({
+      where: { id },
+      data
+    })
+    return updatedUser
+  }
 }
