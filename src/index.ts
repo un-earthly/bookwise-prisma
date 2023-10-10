@@ -3,8 +3,6 @@ import appRouter from './route/index.route';
 import globalErrorHandler from './middleware/globalErrorHandler';
 const app = express();
 const port = process.env.PORT || 8000;
-
-
 app.use(globalErrorHandler);
 
 app.use(express.json());

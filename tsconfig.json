@@ -12,6 +12,6 @@
     "esModuleInterop": true,
     "moduleResolution": "node"
   },
-  "include": ["src/**/*.ts", "src/model/*.model.prisma","src/interface/index.d.ts"],
+  "include": ["src/**/*.ts", "src/interface/index.d.ts","express"],
   "exclude": ["node_modules"]
 }

@@ -9,12 +9,12 @@ const categoryController = {
         sendResponse(res, 200, order);
     }),
     getAllOrders: catchAsync(async (req: Request, res: Response) => {
-        const orders = await OrderService.getAllOrders(); // Assuming you have a method in OrderService to fetch all orders
+        const orders = await OrderService.getAllOrders(); 
         sendResponse(res, 200, orders);
     }),
     getSingleOrder: catchAsync(async (req: Request, res: Response) => {
-        const orderId = req.params.orderId; // Assuming you pass the orderId as a route parameter
-        const order = await OrderService.getSingleOrder(orderId); // Assuming you have a method in OrderService to fetch a single order by ID
+        const orderId = req.params.orderId; 
+        const order = await OrderService.getSingleOrder(orderId);
         if (!order) {
             sendResponse(res, 404, "Order not found");
         } else {

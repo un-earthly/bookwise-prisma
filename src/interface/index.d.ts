@@ -1,4 +1,4 @@
-import { AccessTokenPayload } from './tokenService';
+import { AccessTokenPayload } from "../utils/token";
 
 declare module 'express-serve-static-core' {
     interface Request {
