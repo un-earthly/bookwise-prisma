@@ -5,9 +5,7 @@
   "repository": "https://github.com/un-earthly/bookwise-prisma.git",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "tsc",
-    "start": "dist/index.js"
+    "start": "ts-node-dev --respawn --transpile-only src/index.ts"
   },
   "engines": {
     "node": ">=18.18.0"
