@@ -1,7 +1,7 @@
 {
   "name": "book-catalog-server",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/un-earthly/bookwise-prisma.git",
   "license": "MIT",
   "scripts": {
