@@ -1,14 +1,14 @@
 {
   "name": "book-catalog-server",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "src/server.ts",
   "repository": "https://github.com/un-earthly/bookwise-prisma.git",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/index.js",
-    "dev":"ts-node-dev --respawn --transpile-only src/index.ts",
+    "start": "node dist/server.js",
+    "dev":"ts-node-dev --respawn --transpile-only src/server.ts",
     "build":"tsc",
-    "postinstall": "npx prisma generate"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.4.1",

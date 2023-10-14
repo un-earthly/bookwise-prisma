@@ -12,6 +12,6 @@
     "esModuleInterop": true,
     "moduleResolution": "node"
   },
-  "include": ["src/**/*.ts", "src/interface/index.d.ts","express"],
+  "include": ["src/**/*.ts", "src/interface/index.d.ts","express","src/server.ts"],
   "exclude": ["node_modules"]
 }
