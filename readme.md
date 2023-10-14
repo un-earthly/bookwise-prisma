@@ -2,7 +2,7 @@
 
 ### Overview
 
-The Book library Management System is a web application designed to efficiently manage the inventory of books. It provides features for user authentication, book categorization, book management, order processing, and user management. This technical document provides an overview of the project structure, its main components, and the routes used in the application, including the service files for each controller.
+Bookwise Is a Library of book store Maagement System. The Management System is a web application designed to efficiently manage the inventory of books. It provides features for user authentication, book categorization, book management, order processing, and user management. This technical document provides an overview of the project structure, its main components, and the routes used in the application, including the service files for each controller.
 
 ### Project Structure
 
@@ -32,7 +32,7 @@ The project follows a modular and organized structure, with separate routes, con
   - `book.service.js`: Manages book-related operations, including CRUD actions and book retrieval by category.
   - `order.service.js`: Manages order-related operations, such as order creation and retrieval.
 
-- **Middleware:** Middleware functions are used for authentication and authorization. In this project, `adminRoute` middleware ensures that certain routes are only accessible by admin users, and `verifyJWT` middleware verifies JSON Web Tokens (JWTs) for user authentication.
+- **Middleware:** Middleware functions are used for authentication and authorization. In this project, `adminRoute`&`customerRoute` middlewares ensures that certain routes are only accessible by admin users And customers only, and `verifyJWT` middleware verifies JSON Web Tokens (JWTs) for user authentication.
 
 ### Routes and Sub-Routes
 
@@ -72,19 +72,6 @@ The project has the following main routes and their associated sub-routes:
 - `/` (GET): Retrieves a list of all orders.
 - `/:orderId` (GET): Retrieves information about a single order.
 
-### Service Files
-
-The service files play a crucial role in handling the business logic of the application:
-
-- `auth.service.js`: Manages user authentication and user creation.
-
-- `user.service.js`: Handles user-related operations such as user retrieval, updates, and deletion.
-
-- `category.service.js`: Manages book category-related operations, including CRUD actions for categories.
-
-- `book.service.js`: Manages book-related operations, including CRUD actions for books and retrieval of books by category.
-
-- `order.service.js`: Manages order-related operations, such as order creation and retrieval.
 
 ### Project Objective
 
@@ -106,18 +93,12 @@ The objective of the Book Inventory Management System is to provide a user-frien
 
 ### Technologies Used
 
-- **Node.js and Express.js:** For the backend server.
-- **MongoDB:** As the database to store user information, categories, books, and orders.
+- **Node.js & Express.js:** For the backend server.
+- **PostGresql & Prisma:** As the database to store user information, categories, books, and orders.
 - **JSON Web Tokens (JWTs):** For user authentication and authorization.
-- **JavaScript:** For server-side scripting and logic.
+- **TypeScript:** For server-side scripting and logic.
 - **RESTful API:** To provide a structured interface for client interactions.
 
-### Future Enhancements
-
-- Implement payment processing for order transactions.
-- Introduce user roles (e.g., customer, admin) with varying levels of access.
-- Enhance the search and filtering capabilities for books.
-- Implement user reviews and ratings for books.
 
 ### Conclusion
 
