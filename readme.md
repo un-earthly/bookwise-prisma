@@ -4,6 +4,11 @@
 
 Bookwise Is a Library of book store Maagement System. The Management System is a web application designed to efficiently manage the inventory of books. It provides features for user authentication, book categorization, book management, order processing, and user management. This technical document provides an overview of the project structure, its main components, and the routes used in the application, including the service files for each controller.
 
+
+### Live Link
+# [Bookwise](https://bookwise-server.vercel.app/)
+# [Github](https://github.com/un-earthly/bookwise-prisma.git)
+
 ### Project Structure
 
 The project follows a modular and organized structure, with separate routes, controllers, and service files for each major component of the application. Here's an outline of the project structure:
